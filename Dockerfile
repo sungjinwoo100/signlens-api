@@ -18,12 +18,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Install lightweight CPU-only PyTorch, headless OpenCV, MediaPipe, and FastAPI deps
+# Install lightweight CPU-only PyTorch, headless OpenCV, MediaPipe 0.10.21 (stable on Linux containers), and FastAPI deps
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu torch && \
-    pip install --no-cache-dir opencv-python-headless && \
-    grep -v -E '^(torch|opencv-python|kagglehub|matplotlib|pandas|tqdm)' requirements.txt > requirements.prod.txt && \
+    pip install --no-cache-dir opencv-python-headless "mediapipe==0.10.21" && \
+    grep -v -E '^(torch|opencv-python|mediapipe|kagglehub|matplotlib|pandas|tqdm)' requirements.txt > requirements.prod.txt && \
     pip install --no-cache-dir -r requirements.prod.txt
 
 # Copy backend code, seed script, and trained ML + MediaPipe models
