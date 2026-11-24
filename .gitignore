@@ -1,0 +1,15 @@
+# Python & virtualenv
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Local secrets & database
+.env
+*.db
+*.sqlite3
+
+# Large training artifacts (not needed for Render deployment)
+ml/artifacts/
+ml/asl_model.pkl
+ml/models/asl_rf_backup.joblib

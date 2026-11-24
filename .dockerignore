@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+ml/artifacts/
+ml/asl_model.pkl
+ml/models/asl_rf_backup.joblib
+tests/
+test_*.py
+*.db
+.git/

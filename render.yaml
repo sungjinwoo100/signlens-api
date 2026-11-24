@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: signlens-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ML_MODEL_PATH
+        value: ml/models/asl_mlp.pt
+      - key: MEDIAPIPE_MODEL_PATH
+        value: ml/models/hand_landmarker.task
+      - key: CORS_ORIGINS
+        value: '["*"]'

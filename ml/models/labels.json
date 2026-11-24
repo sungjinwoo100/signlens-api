@@ -1,0 +1,37 @@
+{
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y"
+  ],
+  "excluded_classes": [
+    "J",
+    "Z",
+    "del",
+    "space"
+  ],
+  "nothing_strategy": "hand_detected=false",
+  "best_model_name": "mlp_augmented",
+  "best_model_type": "pytorch"
+}
