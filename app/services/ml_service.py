@@ -54,6 +54,7 @@ class MLService:
 
         self.hand_detector: Optional[HandLandmarkDetector] = None
         self.mediapipe_loaded: bool = False
+        self.mediapipe_error: Optional[str] = None
         self._mp_lock = threading.Lock()
 
     def load_model(self) -> bool:
@@ -131,6 +132,7 @@ class MLService:
                 max_num_hands=1,
             )
             self.mediapipe_loaded = True
+            self.mediapipe_error = None
             logger.info(
                 "Loaded MediaPipe HandLandmarker from '%s'.",
                 self.mediapipe_model_path,
@@ -140,6 +142,7 @@ class MLService:
             logger.error("Failed to load MediaPipe HandLandmarker: %s", e)
             self.hand_detector = None
             self.mediapipe_loaded = False
+            self.mediapipe_error = str(e)
             return False
 
     def close(self) -> None:

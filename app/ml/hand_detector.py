@@ -30,7 +30,10 @@ class HandLandmarkDetector:
                 f"MediaPipe hand_landmarker.task not found at {self.model_path}"
             )
         options = mp.tasks.vision.HandLandmarkerOptions(
-            base_options=mp.tasks.BaseOptions(model_asset_path=str(self.model_path)),
+            base_options=mp.tasks.BaseOptions(
+                model_asset_path=str(self.model_path),
+                delegate=mp.tasks.BaseOptions.Delegate.CPU,
+            ),
             running_mode=mp.tasks.vision.RunningMode.IMAGE,
             num_hands=max_num_hands,
             min_hand_detection_confidence=min_detection_confidence,

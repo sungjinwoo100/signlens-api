@@ -75,4 +75,5 @@ def root():
         "api_v1": settings.API_V1_STR,
         "ml_model_loaded": ml_service.is_loaded,
         "mediapipe_loaded": ml_service.mediapipe_loaded,
+        "mediapipe_error": ml_service.mediapipe_error,
     }
