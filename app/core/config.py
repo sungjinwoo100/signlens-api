@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     # ML Model & MediaPipe
     ML_MODEL_PATH: str = "ml/models/asl_mlp.pt"
     MEDIAPIPE_MODEL_PATH: str = "ml/models/hand_landmarker.task"
-    MAX_IMAGE_DIM: int = 320
+    MAX_IMAGE_DIM: int = 240
 
     model_config = SettingsConfigDict(
         env_file=".env",
